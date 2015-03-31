@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+************************************************************************
+Caudron-C1 simulation configuration. This files ties together all the components
+used by FGFS to represent the Caudron-C1. Components include the flight data
+model, instrument panel, and external 3D model.
+************************************************************************
+version 0.1  111213 -->
+
+<PropertyList>
+ <sim>
+
+  <description>Caudron-C1 bi-plane, (1911~12)</description>
+  <author> LesterBoffo moddedFDM, 3D objects and animation coding</author>
+  <status>early-production</status>
+  <rating>
+    <FDM type="int">3</FDM>
+    <systems type="int">1</systems>
+    <model type="int">4</model>
+    <cockpit type="int">2</cockpit>
+  </rating>
+
+
+  <flight-model>yasim</flight-model>
+  <aero>Caudron-C1-yasim</aero>
+  <fuel-fraction>1.0</fuel-fraction>
+
+  <startup>
+   <splash-texture>Aircraft/Caudron-C1/splash.png</splash-texture>
+  </startup>
+
+  <sound>
+   <path>Aircraft/Caudron-C1/Sounds/Caudron-C1-sound.xml</path>
+  </sound>
+
+  <panel>
+   <visibility archive="n">false</visibility>
+  </panel>
+
+  <model>
+   <path archive="y">Aircraft/Caudron-C1/models/caudron-c1.xml</path>
+  </model>
+
+<!-- pilot viewpoint x=y y=z z=x ?  -->
+
+  <chase-distance-m type="double" archive="y"> -30 </chase-distance-m>
+
+  <view n="100">
+    <name>Tail Camera View</name>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">30</default-field-of-view-deg>
+      <pitch-offset-deg>-5</pitch-offset-deg>
+      <x-offset-m archive="y"> 0.000 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y"> 1.000 </y-offset-m> <!--Up-->
+      <z-offset-m archive="y"> 12.227 </z-offset-m> <!--Back-->
+    </config>
+  </view>
+
+  <view n="0">
+    <internal archive="y">true</internal>
+    <config>
+      <x-offset-m archive="y"> 0.000 </x-offset-m>	<!---Right-->
+      <y-offset-m archive="y"> 0.524 </y-offset-m>	<!--Up-->
+      <z-offset-m archive="y"> 0.214 </z-offset-m>	<!--Back-->
+      <pitch-offset-deg> 0 </pitch-offset-deg>
+      <default-field-of-view-deg>60</default-field-of-view-deg>
+    </config>
+  </view>
+
+  <view n="1">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+
+  <view n="2">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+
+  <view n="3">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+
+  <view n="4">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+
+  <view n="5">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+
+  <view n="6">
+    <config>
+      <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+    </config>
+  </view>
+  
+  <!-- Payload -->
+  <weight>
+   <name type="string">Pilot</name>
+   <weight-lb alias="/yasim/bleriot-XI/pilot-lb"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">210.0</max-lb>
+  </weight>  
+
+
+</sim>
+
+ <controls>
+  <flight>
+   <aileron-trim>0.00</aileron-trim>   <!-- fixed -->
+   <elevator-trim>0.00</elevator-trim> <!-- controllable -->
+   <rudder-trim>0.00</rudder-trim>     <!-- fixed -->
+  </flight>
+  <engines>
+   <engine n="0">
+    <magnetos>3</magnetos>
+   </engine>
+  </engines>
+ </controls>
+
+ <engines>
+  <engine>
+   <rpm type="double">0</rpm>
+  </engine>
+ </engines>
+
+ <limits>
+   <max-positive-g>2.75</max-positive-g>
+   <max-negative-g>-0.92</max-negative-g>
+   <vne>86</vne>
+ </limits>
+
+</PropertyList>

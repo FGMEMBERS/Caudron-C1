@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Caudron-C1   : 2013 Lester Boffo
+
+     Source       : http://flyingmachines.ru/Site2/Crafts/Craft28613.htm
+                 
+      Power:
+   30hp Anzani three-cylinder air-cooled fan type semi-radial with 6ft 10in diameter propeller.
+   45-60hp Anzani six-cylinder air-cooled radial.
+   60 and 70hp Gnome seven-cylinder air-cooled rotary.
+
+Data single-seater with 30hp engine*
+  Span top 30ft.
+  Span bottom 23ft 3 in
+  Chord 4ft 6in
+  Gap 4ft 7in
+  Length 21ft 3 in
+  Area 224 sq ft
+  Horizontal tail spans 10 ft. and has a chord of 5 ft. 3 ins.
+  Area tailplane 53 sq ft
+  Rudders 12 1/2 sq ft
+  *Source Flight 30 November 1912, but Flight 15 March 1913 gives alternative figures
+
+Data Type C single-seater with 60hp Anzani
+  Span top 34ft
+  Span bottom 22ft 6in
+  Area 272 sq ft
+  Length 22ft 3in
+
+-->
+
+<airplane mass="627">
+
+  <approach speed="29" aoa="5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.18"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1"/>
+  </approach>
+
+  <cruise speed="60" alt="5000">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.8"/>
+  </cruise>
+
+  <cockpit x="-0.075" y="0" z="1.125"/>
+
+  <fuselage ax="2.133" ay="0" az="0.156" bx="-1.239" by="0" bz="0.010" width="0.740" taper="0.86" midpoint="0.29"/>
+
+<fuselage ax="-1.239" ay="0.308" az="0.459" bx="-5.10" by="-0.02" bz="0.169" width="0.035" taper="1" midpoint="0.5"/>
+<fuselage ax="-1.239" ay="-0.308" az="0.459" bx="-5.10" by="0.02" bz="0.169" width="0.035" taper="1" midpoint="0.5"/>
+<fuselage ax="-1.239" ay="0.308" az="-0.202" bx="-5.10" by="-0.02" bz="-0.179" width="0.035" taper="1" midpoint="0.5"/>
+<fuselage ax="-1.239" ay="-0.308" az="-0.202" bx="-5.10" by="0.02" bz="-0.179" width="0.035" taper="1" midpoint="0.5"/>
+
+  <!--
+   incidence="10"
+  -->
+  <wing x="0.204" y="0.0" z="0.893"  
+        chord="1.495" 
+        length="4.53"  
+        taper="0.98"
+        incidence="4.0"
+        twist="1.5" 
+        dihedral="0" 
+        camber="0.18">
+        <stall aoa="11" width="3" peak="1.27"/>
+        <flap0 start="0.61" end="1.0" lift="1.59" drag="1.22"/>
+
+        <control-input axis="/controls/flight/aileron" control="FLAP0" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP0" split="true"/>
+
+        <control-output control="FLAP0" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP0" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+        <control-output control="FLAP0" prop="/surface-positions/aileron-pos-norm"/>
+  </wing>
+
+
+  <mstab x="0.204" y="0.0" z="-0.667" 
+         chord="1.495"
+         length="3.632"
+         taper="0.99"
+         incidence="3.75"
+         twist="1.5" 
+         dihedral="0" 
+         camber="0.18">
+         <stall aoa="11" width="3" peak="1.27"/>
+  </mstab>
+
+ <hstab x="-4.993" y="0.0" z="-0.237" 
+         chord="1.838"
+         length="1.785"
+         camber="0.09"
+         incidence="1.5"
+         effectiveness="1.6"  
+         taper="0.97">
+         <stall aoa="17" width="4" peak="2.15"/>
+         <flap0 start="0" end="1.0" lift="1.7" drag="1.2"/> 
+
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-5.168" y="0.447" z="-0.175" 
+         chord="0.820" 
+         length="0.840"
+         effectiveness="1.46" 
+         taper="1">
+         <stall aoa="19" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.7" drag="1.2"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <vstab x="-5.168" y="-0.447" z="-0.175" 
+         chord="0.820" 
+         length="0.840"
+         effectiveness="1.46"
+         taper="1">
+         <stall aoa="19" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.7" drag="1.2"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engines      : Anzani 6-cylinder
+
+       Informations : http://en.wikipedia.org/wiki/Anzani_6-cylinder
+
+       Type         : 6-cylinder air-cooled radial
+       Power        :   45 - 60 hp
+       Displacement :  4.58 liters (280 cu.in.) - 6.33 litres (381 cu. in.)
+       Weight        :  68 - 99 kg (154 - 200 lb)
+  -->
+  <propeller x="1.294" y="0" z="0.0"
+             radius="1.20"
+             mass="154"
+             moment="3.5"
+             cruise-alt="5000"
+             cruise-speed="60"
+             cruise-rpm="1290"
+             cruise-power="42"
+             takeoff-rpm="1300"
+             takeoff-power="45">
+             <actionpt x="1.613" y="0" z="0.00"/>
+             <piston-engine eng-power="45" 
+                            eng-rpm="1350"
+                            bore="3.54"
+                            stroke="4.72"
+                            displacement="280"
+                            min-throttle="0.058"
+                            compression-ratio="4.2">
+                            <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+                            <control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+                            <control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+                            <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
+            </piston-engine>
+  </propeller>
+
+  <!-- gauche -->  
+  <gear x="0.562" y="1.114" z="-1.862"
+        compression="0.09"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="0.9" 
+        sfric="0.61"
+        dfric="0.46">
+  </gear>
+
+  <!-- droite -->
+  <gear x="0.562" y="-1.114" z="-1.862" 
+        compression="0.09"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="0.9" 
+        sfric="0.61"
+        dfric="0.46">
+  </gear>
+
+  <!-- Arriere droite  -->  
+  <gear x="-4.892" y="-1.114" z="-0.678" 
+        sfric="1.21"
+        dfric="0.86"
+        compression="0.03"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="1.9">
+  </gear>
+
+<!-- Arriere gauche  -->  
+  <gear x="-4.892" y="1.114" z="-0.678" 
+        sfric="1.21"
+        dfric="0.86"
+        compression="0.03"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="1.9">
+  </gear> 
+
+  <!-- Reservoir -->
+   <tank x="-0.56" y="0" z="0.14" capacity="112"/>
+
+  <!-- pilot weight -->
+   <weight x="-0.29" y="0.00" z="-0.22" mass-prop="/sim/weight[0]/weight-lb"/> 
+
+<!--
+  <ballast x="1.0" y="0" z="-0.10" mass="40"/>
+-->
+</airplane>
+

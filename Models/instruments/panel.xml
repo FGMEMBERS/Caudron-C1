@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+
+  <!-- Fuel -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/fuel/fuel.xml</path>
+    <offsets>
+      <x-m>  -0.69 </x-m>
+      <y-m>  0.18 </y-m>
+      <z-m>  0.531 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   -8.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Fuel valve -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/fuelvalve/fuel-valve.xml</path>
+    <offsets>
+      <x-m>  -0.714 </x-m>
+      <y-m>  0.168 </y-m>
+      <z-m>  0.409 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+    <!-- RPM -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/tach/tach.xml</path>
+    <offsets>
+      <x-m>  -0.708 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.521 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   -24.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+ <!-- Altitude -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m>  -0.735 </x-m>
+      <y-m>  -0.135 </y-m>
+      <z-m>  0.601 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   -24.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Compass -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/compass/compass.xml</path>
+    <offsets>
+      <x-m>  -0.675 </x-m>
+      <y-m> -0.275 </y-m>
+      <z-m>  0.200 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- ASI -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments//asi/asi.xml</path>
+    <offsets>
+      <x-m>  -0.735 </x-m>
+      <y-m>  0.107 </y-m>
+      <z-m>  0.601 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>   -24.000 </pitch-deg>
+      <heading-deg> -0.000 </heading-deg>
+    </offsets>
+  </model>
+
+</PropertyList>

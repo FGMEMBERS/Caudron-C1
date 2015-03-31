@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ########################################
+
+ # DR400-jsbSim by PAF team
+ # April 2012 : Modified by PAF team
+ # http://equipe-flightgear.forumactif.com
+
+##########################################-->
+
+<PropertyList>
+
+   <path>fuelvalve.ac</path>
+    
+    <animation>
+       <object-name>fuelvalve</object-name>
+       <object-name>valve</object-name>
+     </animation>
+
+  <animation>
+   <type>pick</type>
+   <visible>true</visible>
+   <object-name>valve</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-toggle</command>
+      <property>controls/engines/engine/mixture</property>
+      <value type="int">1.0</value>
+    </binding>          
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-toggle</command>
+      <property>controls/engines/engine/mixture</property>
+      <value type="int">0.0</value>
+    </binding>          
+   </action>
+  </animation>
+
+<!-- <property>controls/fuel/tank/to_engine</property> -->
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>valve</object-name>
+    <property>controls/engines/engine/mixture</property>
+    <factor>90</factor>
+    <axis>
+      <x1-m> -0.2 </x1-m>
+      <y1-m> 0.0 </y1-m>
+      <z1-m> 0.0 </z1-m>
+      <x2-m>  0.2</x2-m>
+      <y2-m> 0.0 </y2-m>
+      <z2-m> 0.0 </z2-m>
+    </axis>
+     <offsets>
+      <roll-deg> -90 </roll-deg>
+    </offsets>
+  </animation>         
+ 
+</PropertyList>

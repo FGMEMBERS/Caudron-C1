@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>caudron-c1.ac</path>
+
+<effect>
+     <inherits-from>Effects/model-transparent</inherits-from>
+      <object-name>propdisc</object-name>
+      <object-name>propblur</object-name>
+    </effect>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>cadre</object-name>
+    <object-name>siege</object-name>
+    <object-name>gouverne</object-name>
+    <object-name>aileG</object-name>
+    <object-name>aileD</object-name>
+    <object-name>aile2G</object-name>
+    <object-name>aile2D</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>axedessous</object-name>
+    <object-name>axedessus</object-name>
+    <object-name>axequeue</object-name>
+    <object-name>barreaile</object-name>
+    <object-name>suspensionQA</object-name>
+    <object-name>suspensionQB</object-name>
+    <object-name>suspensionQC</object-name>
+    <object-name>suspensionQD</object-name>
+    <object-name>suspensionQE</object-name>
+    <object-name>suspensionQF</object-name>
+    <object-name>axeavantG</object-name>
+    <object-name>axeavantD</object-name>
+    <object-name>suspensionAG</object-name>
+    <object-name>suspensionAD</object-name>
+    <object-name>suspensionBG</object-name>
+    <object-name>suspensionBD</object-name>
+    <object-name>suspensionCG</object-name>
+    <object-name>suspensionCD</object-name>
+    <object-name>ressortG1</object-name>
+    <object-name>ressortG2</object-name>
+    <object-name>ressortG1B</object-name>
+    <object-name>ressortG2B</object-name>
+    <object-name>ressortD1</object-name>
+    <object-name>ressortD2</object-name>
+    <object-name>ressortD1B</object-name>
+    <object-name>ressortD2B</object-name>
+    <object-name>prisesressort</object-name>
+    <object-name>suspensionbarre</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <object-name>roueA</object-name>
+    <object-name>bidon1</object-name>
+    <object-name>bidon2</object-name>
+    <object-name>bidon3</object-name>
+    <object-name>bidon4</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>moteur</object-name>
+    <object-name>volant</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>aileGtrans</object-name>
+    <object-name>aileDtrans</object-name>
+    <object-name>fuselage</object-name>
+    <object-name>derive</object-name>
+    <object-name>gouverne2</object-name>
+    <object-name>profondeur2</object-name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>cables</object-name>
+  </animation> 
+
+  <animation>
+    <name>HeliceComplete</name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propeller</object-name>
+    <object-name>prophub</object-name>
+  </animation>
+
+  <!-- Pilot -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> 0.432 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  -0.284 </z-m>
+    </offsets>
+  </model>
+
+<!-- Panel instruments -->
+  <model>
+    <path>Aircraft/Caudron-C1/Models/instruments/panel.xml</path>
+    <offsets>
+      <x-m> 0.432 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  -0.284 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Llice --> 
+  <!-- Slction de l'objet visible en fonction des rpm -->
+  <animation>
+    <type>select</type>
+    <object-name>propdisc</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>600</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propblur</object-name>
+    <condition>
+    <and>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>300.000</value>
+      </greater-than>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>600.001</value>
+      </less-than>
+    </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propeller</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+	<value>600</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- Rotation de l'hlice/disque -->
+  <animation>
+    <type>spin</type>
+     <object-name>HeliceComplete</object-name>
+     <property>engines/engine[0]/rpm</property>
+    <factor> 1 </factor>
+    <center>
+      <x-m> -2.063 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.004 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Animation du manche -->
+  <animation>
+    <type>rotate</type>
+    <object-name>volant</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>10</factor>
+    <center>
+      <x-m> -0.319 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.119 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>volant</object-name>
+    <property>surface-positions/aileron-pos-norm</property>
+    <factor>10</factor>
+    <center>
+      <x-m> -0.319 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.119 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Gouverne de profondeur -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elevator</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>11</factor>
+    <center>
+      <x-m>  4.879 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.23 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>leftrudder</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>20</factor>
+    <center>
+      <x-m> 4.910 </x-m>
+      <y-m> -0.4497 </y-m>
+      <z-m> -0.19 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y>  0 </y>
+      <z>  1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rightrudder</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>20</factor>
+    <center>
+      <x-m> 4.910 </x-m>
+      <y-m> 0.4497 </y-m>
+      <z-m> -0.19 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y>  0 </y>
+      <z>  1 </z>
+    </axis>
+  </animation>
+
+<!-- Left Gear compression -->
+
+<animation>
+    <name>LeftTruckAssemb</name>
+    <object-name>L-truckstays</object-name>
+    <object-name>outleftwheel</object-name> 
+    <object-name>inleftwheel</object-name>
+  </animation>
+
+ <animation>
+  <type>rotate</type>
+  <property>gear/gear[0]/compression-norm</property>
+  <object-name>LeftTruckAssemb</object-name>
+  <interpolation>
+   <entry> <ind>0.0</ind> <dep> 0</dep> </entry>
+   <entry> <ind>0.33</ind> <dep>4</dep> </entry>
+   <entry> <ind>0.66</ind> <dep>8</dep> </entry>
+   <entry> <ind>1.0</ind> <dep>12</dep> </entry>
+  </interpolation>
+  <axis>
+   <x> 0.00</x>
+   <y> -1.00</y>
+   <z> 0.00</z>
+  </axis>
+  <center>
+   <x-m>-0.888</x-m>
+   <y-m> -1.101</y-m>
+   <z-m>-1.521</z-m>
+  </center> 
+ </animation>
+
+  <!-- Left Wheel rotation -->
+  <animation>
+    <type>spin</type>
+    <object-name>outleftwheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 33 </factor>
+    <center>
+      <x-m> -0.5536 </x-m>
+      <y-m> -1.1393 </y-m>
+      <z-m> -1.5038  </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>inleftwheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 33 </factor>
+    <center>
+      <x-m> -0.5536 </x-m>
+      <y-m> -0.832 </y-m>
+      <z-m> -1.5038  </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+<!-- Left Gear compression -->
+
+<animation>
+    <name>RightTruckAssemb</name>
+    <object-name>R-truckstays</object-name>
+    <object-name>outrightwheel</object-name> 
+    <object-name>inrightwheel</object-name>
+  </animation>
+
+ <animation>
+  <type>rotate</type>
+  <property>gear/gear[1]/compression-norm</property>
+  <object-name>RightTruckAssemb</object-name>
+  <interpolation>
+   <entry> <ind>0.0</ind> <dep> 0</dep> </entry>
+   <entry> <ind>0.33</ind> <dep>4</dep> </entry>
+   <entry> <ind>0.66</ind> <dep>8</dep> </entry>
+   <entry> <ind>1.0</ind> <dep>12</dep> </entry>
+  </interpolation>
+  <axis>
+   <x> 0.00</x>
+   <y> -1.00</y>
+   <z> 0.00</z>
+  </axis>
+  <center>
+   <x-m>-0.888</x-m>
+   <y-m> 1.101</y-m>
+   <z-m>-1.521</z-m>
+  </center> 
+ </animation>
+
+<!-- Right Wheel rotation -->
+  <animation>
+    <type>spin</type>
+    <object-name>outrightwheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 33 </factor>
+    <center>
+      <x-m> -0.5536 </x-m>
+      <y-m>  1.1393 </y-m>
+      <z-m> -1.5038  </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>inrightwheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 33 </factor>
+    <center>
+      <x-m> -0.5536 </x-m>
+      <y-m>  0.832 </y-m>
+      <z-m> -1.5038  </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+
